@@ -6,8 +6,8 @@ module Vacations
       def verify!
         vacation_period = entity.vacation_period
 
-        start_date = vacation_period.start_date.to_date
-        end_date = vacation_period.end_date.to_date
+        start_date = vacation_period.start_date.to_datetime
+        end_date = vacation_period.end_date.to_datetime
 
         period = end_date - start_date
 

@@ -7,16 +7,16 @@ module Vacations
         collaborator = entity.collaborator
         vacation_period = entity.vacation_period
 
-        start_date = vacation_period.start_date.to_date
-        end_date = vacation_period.end_date.to_date
+        start_date = vacation_period.start_date.to_datetime
+        end_date = vacation_period.end_date.to_datetime
 
         previous_vacations = collaborator.vacation_periods
 
         validations = previous_vacations.map do |previous_vacation|
           next unless previous_vacation.persisted?
 
-          previous_vacation_start_date = previous_vacation.start_date.to_date
-          previous_vacation_end_date = previous_vacation.end_date.to_date
+          previous_vacation_start_date = previous_vacation.start_date.to_datetime
+          previous_vacation_end_date = previous_vacation.end_date.to_datetime
 
           start_validation = start_date.between?(previous_vacation_start_date, previous_vacation_end_date)
           end_validation = end_date.between?(previous_vacation_start_date, previous_vacation_end_date)

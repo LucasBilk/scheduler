@@ -6,8 +6,8 @@ module Vacations
       def verify!
         collaborator = entity.collaborator
 
-        contract_date = collaborator.contract_date.to_date
-        working_days = (DateTime.now.to_date - contract_date).to_i
+        contract_date = collaborator.contract_date.to_datetime
+        working_days = (DateTime.now.to_datetime - contract_date).to_i
         working_months = (working_days / 365) * 12
 
         total_vacation_balance = 30 * working_months

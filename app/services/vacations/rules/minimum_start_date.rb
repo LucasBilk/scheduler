@@ -7,8 +7,8 @@ module Vacations
         collaborator = entity.collaborator
         vacation_period = entity.vacation_period
 
-        contract_date = collaborator.contract_date.to_date
-        start_date = vacation_period.start_date.to_date
+        contract_date = collaborator.contract_date.to_datetime
+        start_date = vacation_period.start_date.to_datetime
 
         started_since_in_days = (start_date - contract_date).to_i
         started_since_in_years = (started_since_in_days / 365) * 12

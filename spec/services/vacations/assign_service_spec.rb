@@ -30,8 +30,8 @@ RSpec.describe 'Vacations::AssignService', type: :service do
 
         vacation_period = collaborator.vacation_periods.first
 
-        expect(vacation_period.start_date.to_date).to eq(start_date.to_date)
-        expect(vacation_period.end_date.to_date).to eq(end_date.to_date)
+        expect(vacation_period.start_date.to_i).to eq(start_date.to_i)
+        expect(vacation_period.end_date.to_i).to eq(end_date.to_i)
       end
     end
 
