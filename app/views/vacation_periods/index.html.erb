@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Vacation Periods</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Collaborator</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vacation_periods.each do |vacation_period| %>
+      <tr>
+        <td><%= vacation_period.start_date %></td>
+        <td><%= vacation_period.end_date %></td>
+        <td><%= vacation_period.collaborator_id %></td>
+        <td><%= link_to 'Show', vacation_period %></td>
+        <td><%= link_to 'Edit', edit_vacation_period_path(vacation_period) %></td>
+        <td><%= link_to 'Destroy', vacation_period, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vacation Period', new_vacation_period_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @vacation_period.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @vacation_period.end_date %>
+</p>
+
+<p>
+  <strong>Collaborator:</strong>
+  <%= @vacation_period.collaborator_id %>
+</p>
+
+<%= link_to 'Edit', edit_vacation_period_path(@vacation_period) %> |
+<%= link_to 'Back', vacation_periods_path %>

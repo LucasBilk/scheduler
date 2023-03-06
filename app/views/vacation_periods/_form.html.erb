@@ -1,0 +1,34 @@
+<%= form_with(model: vacation_period) do |form| %>
+  <% if @service_response.present? %>
+    <% if @service_response[:valid] == false %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@service_response[:verifications].select {|k,v| v == false}.count, "error") %> prohibited this vacation period from being saved:</h2>
+
+        <ul>
+        <% @service_response[:verifications].select {|k,v| v == false}.each do |error| %>
+          <li><%= error[0] %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :start_date %>
+    <%= form.date_select :start_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_date %>
+    <%= form.date_select :end_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :collaborator_id %>
+    <%= collection_select(:collaborator, :id, Collaborator.all, :id, :name) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
